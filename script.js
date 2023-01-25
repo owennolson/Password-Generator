@@ -1,17 +1,13 @@
+//creates the global variables
 var passwordLength = 0;
 var choices = [];
 var lowerChoice = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 var upperChoice = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 var numChoice = ['0','1','2','3','4','5','6','7','8','9'];
 var specialChoice = ['!','@','#','~','$','%','^','&','*','?','>','<'];
-
-// Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
-// Write password to the #password input
+//prints the password to the box using the writePassword() function the userInput() function and the generatePassword() function
 function writePassword() {
   var chosenChar = userInput();
   var passwordText = document.querySelector("#password");
@@ -25,6 +21,7 @@ function writePassword() {
 
 }
 
+//generates the newPassword in the function generatePassword()
 function generatePassword() {
     var newPassword = "";
     for (var i =0; i < passwordLength; i++) {
@@ -34,6 +31,7 @@ function generatePassword() {
     return newPassword;
 }
 
+//creates a function that asks the user the necessary questions to generate a password using a prompt and confirms
 function userInput() {
     choices = [];
     passwordLength = parseInt(prompt("Pick a number 8 - 128"));
@@ -56,3 +54,6 @@ function userInput() {
     }
     return true;
 }
+
+// adds an event listener that waits for a click to start the whole thing
+generateBtn.addEventListener("click", writePassword);
